@@ -1,0 +1,82 @@
+/* Floating Glass Hexagons */
+.hexagon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4rem 0;
+    perspective: 1000px;
+}
+
+.hexagon-wrapper {
+    position: relative;
+    width: 280px;
+    height: 320px;
+    margin: 0 1rem;
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.hexagon-wrapper:hover {
+    transform: translateY(-20px) rotateX(10deg);
+    z-index: 10;
+}
+
+.glass-hexagon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.hexagon-wrapper:hover .glass-hexagon {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
+}
+
+.glass-hexagon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), transparent);
+    pointer-events: none;
+}
+
+.hex-icon {
+    width: 48px;
+    height: 48px;
+    color: #60a5fa;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
+}
+
+.hex-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hex-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    padding: 0 1rem;
+}

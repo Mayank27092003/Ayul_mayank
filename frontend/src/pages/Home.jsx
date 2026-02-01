@@ -1,23 +1,26 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { 
-  Brain, Code, Database, Cpu, GitBranch, Mail, Phone, MapPin, 
+import {
+  Brain, Code, Database, Cpu, GitBranch, Mail, Phone, MapPin,
   Github, Linkedin, Download, ExternalLink, ChevronDown,
-  Sparkles, Terminal, Network, Layers, Zap, Award
+  Sparkles, Terminal, Network, Layers, Zap, Award, Bot, Eye, MessageSquare, Sun, Moon
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
+import SkillPresenter from '../components/SkillPresenter';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
-import { personalInfo, stats, experience, projects, skills, testimonials } from '../data/mock';
+import { personalInfo, stats, experience, projects, skills, testimonials, services } from '../data/mock';
 import '../styles/home.css';
 
 const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [theme, setTheme] = useState('dark');
   const { scrollYProgress } = useScroll();
   const scaleProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-  
+
   const heroRef = useRef(null);
   const [isVisible, setIsVisible] = useState({});
 
@@ -31,7 +34,14 @@ const Home = () => {
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
-    alert('Thanks for reaching out! This is a mock form. In production, this would send an email.');
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const message = e.target.message.value;
+
+    const subject = encodeURIComponent(`Contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -39,7 +49,7 @@ const Home = () => {
       {/* Animated Background */}
       <div className="animated-background">
         <div className="grid-overlay"></div>
-        <motion.div 
+        <motion.div
           className="cursor-glow"
           animate={{ x: mousePosition.x - 150, y: mousePosition.y - 150 }}
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
@@ -47,7 +57,7 @@ const Home = () => {
       </div>
 
       {/* Header */}
-      <motion.header 
+      <motion.header
         className="header"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -55,20 +65,46 @@ const Home = () => {
       >
         <div className="header-content">
           <div className="logo">
-            <Terminal className="logo-icon" />
-            <span className="logo-text">AYUL IT Solutions</span>
+            {personalInfo.logo ? (
+              <img src={personalInfo.logo} alt="Logo" className="logo-image" style={{ height: '40px' }} />
+            ) : (
+              <>
+                <Terminal className="logo-icon" />
+                <span className="logo-text">AYUL IT Solutions</span>
+              </>
+            )}
           </div>
           <nav className="nav">
             <a href="#about" className="nav-link">About</a>
             <a href="#experience" className="nav-link">Experience</a>
+            <a href="#services" className="nav-link">Services</a>
             <a href="#projects" className="nav-link">Projects</a>
             <a href="#skills" className="nav-link">Skills</a>
             <a href="#contact" className="nav-link">Contact</a>
           </nav>
-          <Button variant="outline" className="cta-button">
-            <Download className="w-4 h-4 mr-2" />
-            Resume
-          </Button>
+
+          <div className="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => {
+                const newTheme = theme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+                document.documentElement.setAttribute('data-theme', newTheme);
+              }}
+              className="theme-toggle"
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </Button>
+            <Button
+              variant="outline"
+              className="cta-button"
+              onClick={() => window.open(personalInfo.resume, '_blank')}
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Resume
+            </Button>
+          </div>
         </div>
       </motion.header>
 
@@ -84,19 +120,28 @@ const Home = () => {
               <Sparkles className="w-4 h-4" />
               <span>AI/ML Engineer at {personalInfo.company}</span>
             </div>
-            
+
             <h1 className="hero-title">
               <span className="gradient-text">{personalInfo.name}</span>
             </h1>
-            
+
             <p className="hero-subtitle">{personalInfo.tagline}</p>
-            
+
             <div className="hero-actions">
-              <Button size="lg" className="primary-button">
+              <Button
+                size="lg"
+                className="primary-button"
+                onClick={() => window.location.href = `mailto:${personalInfo.email}`}
+              >
                 <Mail className="w-5 h-5 mr-2" />
-                Get In Touch
+                Contact Me
               </Button>
-              <Button size="lg" variant="outline" className="secondary-button">
+              <Button
+                size="lg"
+                variant="outline"
+                className="secondary-button"
+                onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
+              >
                 <Github className="w-5 h-5 mr-2" />
                 View Work
               </Button>
@@ -104,7 +149,7 @@ const Home = () => {
 
             <div className="hero-stats">
               {stats.map((stat, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="stat-item"
                   initial={{ opacity: 0, y: 20 }}
@@ -118,7 +163,7 @@ const Home = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="hero-visual"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -126,11 +171,11 @@ const Home = () => {
           >
             <div className="floating-card card-1">
               <Brain className="w-8 h-8" />
-              <span>NLP</span>
+              <span>Agentic AI</span>
             </div>
             <div className="floating-card card-2">
-              <Network className="w-8 h-8" />
-              <span>Transformers</span>
+              <Sparkles className="w-8 h-8" />
+              <span>GenAI</span>
             </div>
             <div className="floating-card card-3">
               <Cpu className="w-8 h-8" />
@@ -138,13 +183,21 @@ const Home = () => {
             </div>
             <div className="floating-card card-4">
               <Code className="w-8 h-8" />
-              <span>FastAPI</span>
+              <span>Transformers</span>
+            </div>
+            <div className="floating-card card-5" style={{ top: '50%', right: '10%', animationDelay: '1.5s' }}>
+              <Database className="w-8 h-8" />
+              <span>RAG</span>
+            </div>
+            <div className="floating-card card-6" style={{ top: '80%', right: '30%', animationDelay: '2.5s' }}>
+              <MessageSquare className="w-8 h-8" />
+              <span>LLMs</span>
             </div>
             <div className="central-orb"></div>
           </motion.div>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           className="scroll-indicator"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -242,6 +295,35 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Services Section */}
+      <section id="services" className="section services-section">
+        <div className="section-content">
+          <h2 className="section-title">
+            <Zap className="section-icon" />
+            My Offers
+          </h2>
+
+          <div className="hexagon-grid">
+            {services.map((service, index) => {
+              const Icon = service.icon === 'Bot' ? Bot : service.icon === 'Brain' ? Brain : service.icon === 'Eye' ? Eye : Sparkles;
+              return (
+                <div
+                  className="hexagon-wrapper"
+                  key={service.id}
+                  style={{ marginTop: index % 2 === 1 ? '4rem' : '0' }} // Staggered layout
+                >
+                  <div className="glass-hexagon">
+                    <Icon className="hex-icon" />
+                    <h3 className="hex-title">{service.title}</h3>
+                    <p className="hex-description">{service.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="section projects-section">
         <div className="section-content">
@@ -296,30 +378,8 @@ const Home = () => {
             <Database className="section-icon" />
             Technical Skills
           </h2>
-          <div className="skills-grid">
-            {Object.entries(skills).map(([category, skillList], index) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="skill-card">
-                  <CardContent className="p-6">
-                    <h3 className="skill-category">{category}</h3>
-                    <div className="skill-tags">
-                      {skillList.map((skill, i) => (
-                        <Badge key={i} variant="outline" className="skill-badge">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+
+          <SkillPresenter skills={skills} />
         </div>
       </section>
 
@@ -368,23 +428,42 @@ const Home = () => {
             <div className="contact-info-panel">
               <h3>Let's Work Together</h3>
               <p>I'm always interested in hearing about new projects and opportunities.</p>
-              <div className="contact-links">
-                <a href={`mailto:${personalInfo.email}`} className="contact-link">
-                  <Mail className="w-5 h-5" />
-                  {personalInfo.email}
-                </a>
-                <a href={`tel:${personalInfo.phone}`} className="contact-link">
-                  <Phone className="w-5 h-5" />
-                  {personalInfo.phone}
-                </a>
-                <a href={personalInfo.github} className="contact-link" target="_blank" rel="noopener noreferrer">
-                  <Github className="w-5 h-5" />
+              <div className="contact-links grid grid-cols-1 gap-4">
+                <Button
+                  className="w-full justify-start"
+                  variant="outline"
+                  onClick={() => window.open(`mailto:${personalInfo.email}`, '_blank')}
+                >
+                  <Mail className="w-5 h-5 mr-2" />
+                  Email: {personalInfo.email}
+                </Button>
+
+                <Button
+                  className="w-full justify-start"
+                  variant="outline"
+                  onClick={() => window.open(`https://wa.me/${personalInfo.phone.replace(/[^0-9]/g, '')}`, '_blank')}
+                >
+                  <MessageSquare className="w-5 h-5 mr-2" />
+                  WhatsApp: {personalInfo.phone}
+                </Button>
+
+                <Button
+                  className="w-full justify-start"
+                  variant="outline"
+                  onClick={() => window.open(personalInfo.github, '_blank')}
+                >
+                  <Github className="w-5 h-5 mr-2" />
                   GitHub Profile
-                </a>
-                <a href={personalInfo.linkedin} className="contact-link" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-5 h-5" />
+                </Button>
+
+                <Button
+                  className="w-full justify-start"
+                  variant="outline"
+                  onClick={() => window.open(personalInfo.linkedin, '_blank')}
+                >
+                  <Linkedin className="w-5 h-5 mr-2" />
                   LinkedIn Profile
-                </a>
+                </Button>
               </div>
             </div>
             <Card className="contact-form-card">

@@ -9,15 +9,16 @@ export const personalInfo = {
   email: "mayankshukla270903@gmail.com",
   phone: "+91 62666 01638",
   location: "India",
-  github: "https://github.com/mayankshukla",
+  github: "https://github.com/mayankshukla270903",
   linkedin: "https://linkedin.com/in/mayankshukla",
-  resume: "/resume.pdf"
+  resume: "https://drive.google.com/file/d/1Xh7VUqgr7o9ohvUdJoSH_xc4P-CEHvSN/view?usp=sharing",
+  logo: "/ayullogo.jpeg"
 };
 
 export const stats = [
-  { label: "Years Experience", value: "2+" },
-  { label: "Projects Completed", value: "15+" },
-  { label: "AI Models Deployed", value: "8+" },
+  { label: "Years Experience", value: "1+" },
+  { label: "Projects Completed", value: "10+" },
+  { label: "AI Models Deployed", value: "5" },
   { label: "Research Papers", value: "1" }
 ];
 
@@ -69,9 +70,9 @@ export const projects = [
       "Hierarchical chunking with TF-IDF filtering"
     ],
     technologies: ["Transformers", "T5", "BERT", "Pegasus", "TF-IDF", "Python", "HuggingFace"],
-    image: "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxuZXVyYWwlMjBuZXR3b3JrfGVufDB8fHx8MTc2OTgzMTk0OXww&ixlib=rb-4.1.0&q=85",
+    image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxsZWdhbHxlbnwwfHx8fDE3MDY1NTYwMjJ8MA&ixlib=rb-4.1.0&q=85",
     demoUrl: "https://huggingface.co/demo",
-    githubUrl: "https://github.com/mayankshukla/nyayallm"
+    githubUrl: "https://huggingface.co/spaces/Rak-shit/jurai-legal-llm"
   },
   {
     id: 2,
@@ -85,11 +86,71 @@ export const projects = [
       "Real-time inference API endpoints"
     ],
     technologies: ["FastAPI", "Computer Vision", "Docker", "React", "OpenCV", "REST APIs"],
-    image: "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwyfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2OTgzMTk0NHww&ixlib=rb-4.1.0&q=85",
-    githubUrl: "https://github.com/mayankshukla/whaome-ai"
+    image: "https://images.unsplash.com/photo-1596462502278-27bfdd403cc2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxiZWF1dHklMjB0ZWNofGVufDB8fHx8MTcwNjU1NjA1NXww&ixlib=rb-4.1.0&q=85",
+    githubUrl: "https://github.com/whaome/whaome-backend"
   },
   {
     id: 3,
+    title: "iPharm",
+    category: "Healthcare • Web App",
+    description: "Digital pharmacy platform streamlining medication access and delivery.",
+    highlights: [
+      "Modern web interface for medication browsing",
+      "Seamless ordering system",
+      "Healthcare compliance standards",
+      "Intuitive user experience"
+    ],
+    technologies: ["React", "Node.js", "Web Development", "UI/UX"],
+    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxwaGFybWFjeXxlbnwwfHx8fDE3MDY1NTYwODh8MA&ixlib=rb-4.1.0&q=85",
+    demoUrl: "https://ipharm.vercel.app/"
+  },
+  {
+    id: 4,
+    title: "Caltrain AI",
+    category: "AI • Enterprise Solutions",
+    description: "Advanced AI solutions for enterprise automation and efficiency.",
+    highlights: [
+      "Enterprise-grade AI integration",
+      "Scalable automation workflows",
+      "Custom AI model deployment",
+      "Process optimization"
+    ],
+    technologies: ["AI/ML", "Enterprise Automation", "Cloud Integration"],
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTcwNjU1NjExNnww&ixlib=rb-4.1.0&q=85",
+    demoUrl: "https://www.caltrainai.com/"
+  },
+  {
+    id: 5,
+    title: "Restaurant Calling Agent",
+    category: "Voice AI • Automation",
+    description: "AI-powered voice agent for automating restaurant reservations and inquiries in the US market.",
+    highlights: [
+      "Automated reservation management",
+      "Natural language understanding for voice",
+      "Handling US-specific restaurant inquiries",
+      "Reducing staff workload"
+    ],
+    technologies: ["Voice AI", "NLP", "Telephony Integration", "Python"],
+    image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50fGVufDB8fHx8MTcwNjU1NjE0MXww&ixlib=rb-4.1.0&q=85"
+  },
+  {
+    id: 7,
+    title: "Perk.finance",
+    category: "Fintech • AI & Frontend",
+    description: "Best money management app helping users track expenses and manage finances effectively.",
+    highlights: [
+      "AI-driven financial insights",
+      "Frontend development with modern UI/UX",
+      "Google Group community integration",
+      "Available on Play Store"
+    ],
+    technologies: ["React Native", "AI", "Frontend Development", "Mobile App"],
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxtb25leSUyMG1hbmFnZW1lbnR8ZW58MHx8fHwxNzA2NTU2MTg4fDA&ixlib=rb-4.1.0&q=85",
+    demoUrl: "https://play.google.com/store/apps/details?id=com.perk.finance",
+    githubUrl: "https://groups.google.com/g/perk-finance/"
+  },
+  {
+    id: 6,
     title: "BSP Sahayak",
     category: "NLP • Enterprise",
     description: "Enterprise AI chatbot improving internal query resolution by 40% using Flask-based conversational AI system.",
@@ -100,73 +161,81 @@ export const projects = [
       "Letter of Recommendation from AGM, Bhilai Steel Plant"
     ],
     technologies: ["Flask", "NLP", "Transformers", "Python", "SQL"],
-    image: "https://images.unsplash.com/photo-1655890006065-edefcd764af6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHw0fHxuZXVyYWwlMjBuZXR3b3JrfGVufDB8fHx8MTc2OTgzMTk0OXww&ixlib=rb-4.1.0&q=85",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxjaGF0Ym90fGVufDB8fHx8MTcwNjU1NjE2N3ww&ixlib=rb-4.1.0&q=85",
     githubUrl: "https://github.com/mayankshukla/bsp-sahayak"
+  }
+];
+
+export const services = [
+  {
+    id: 1,
+    title: "AI Automation",
+    description: "End-to-end automation of business processes using state-of-the-art AI agents and workflows.",
+    icon: "Bot"
+  },
+  {
+    id: 2,
+    title: "GenAI Solutions",
+    description: "Generative AI systems for content creation, code generation, and personalized customer experiences.",
+    icon: "Sparkles"
+  },
+  {
+    id: 3,
+    title: "Agentic AI",
+    description: "Autonomous AI agents capable of planning, reasoning, and executing complex tasks with minimal supervision.",
+    icon: "Brain"
   },
   {
     id: 4,
-    title: "IntelliScan",
-    category: "Computer Vision • Healthcare",
-    description: "Medical image analysis system with CNN-based inference pipeline and interactive Streamlit visualization.",
-    highlights: [
-      "CNN-based medical image classification",
-      "Streamlit visualization dashboard",
-      "Real-time inference pipeline",
-      "Healthcare-grade accuracy standards"
-    ],
-    technologies: ["CNN", "TensorFlow", "Streamlit", "Python", "OpenCV"],
-    image: "https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2OTgzMTk0NHww&ixlib=rb-4.1.0&q=85",
-    githubUrl: "https://github.com/mayankshukla/intelliscan"
+    title: "Computer Vision",
+    description: "Image and video analysis solutions for healthcare, security, and industrial applications.",
+    icon: "Eye"
   }
 ];
 
 export const skills = {
-  "ML / NLP": [
-    "Transformers",
-    "Long-Document NLP",
-    "Domain Adaptation",
-    "CNNs",
-    "BERT",
-    "T5",
-    "Pegasus"
+  "Advanced AI & Agents": [
+    "Agentic AI Patterns",
+    "RAG Systems",
+    "LLM Fine-tuning",
+    "LangChain / LangGraph",
+    "Multi-Agent Systems",
+    "Prompt Engineering"
   ],
-  "Systems & APIs": [
+  "App Development": [
+    "Flutter",
+    "React Native",
+    "React.js",
     "FastAPI",
-    "Flask",
-    "Docker",
-    "Django",
-    "REST APIs",
-    "Streamlit",
-    "Microservices"
+    "Mobile & Web Architecture"
   ],
-  "Programming": [
-    "Python",
-    "SQL",
-    "C++",
-    "JavaScript",
-    "HTML/CSS"
-  ],
-  "Tools & Libraries": [
-    "HuggingFace",
-    "Pandas",
-    "NumPy",
-    "scikit-learn",
+  "Computer Vision": [
+    "YOLO / Object Detection",
+    "Image Segmentation",
     "OpenCV",
-    "Git",
-    "TensorFlow",
-    "PyTorch"
+    "Face Analysis",
+    "Video Processing"
   ],
-  "Frontend": [
-    "React",
-    "JavaScript",
-    "HTML",
-    "CSS"
+  "AI Deployment & Cloud": [
+    "Docker & Containerization",
+    "HuggingFace Spaces",
+    "Vector Databases (Pinecone/Chroma)",
+    "Model Quantization",
+    "GPU Optimization"
   ],
-  "Database": [
-    "SQL",
-    "PostgreSQL",
-    "SQLite",
-    "MongoDB"
+  "Voice AI & Audio": [
+    "Whisper / Speech-to-Text",
+    "TTS Systems",
+    "Audio Classification",
+    "Speaker Diarization",
+    "Real-time Audio Streams"
+  ],
+  "Generative Models": [
+    "Stable Diffusion",
+    "ControlNet",
+    "Midjourney API",
+    "Video Generation",
+    "3D Asset Gen"
   ]
 };
 
@@ -190,15 +259,15 @@ export const certifications = [
 export const testimonials = [
   {
     id: 1,
-    name: "Dr. Rajesh Kumar",
-    role: "Assistant Professor",
+    name: "Prof. Sumit Kumar",
+    role: "Professor",
     company: "University of Burdwan",
     text: "Mayank's work on legal document summarization showed exceptional understanding of NLP and domain adaptation. His 27% improvement on ROUGE-1 scores was remarkable.",
     image: "https://ui-avatars.com/api/?name=Rajesh+Kumar&background=1e40af&color=fff&size=128"
   },
   {
     id: 2,
-    name: "Priya Sharma",
+    name: "Subham Prasad",
     role: "Product Manager",
     company: "Whaome AI",
     text: "Mayank delivered a production-ready AI backend that exceeded our expectations. His technical expertise in computer vision and API development was invaluable.",
@@ -206,7 +275,7 @@ export const testimonials = [
   },
   {
     id: 3,
-    name: "Amit Verma",
+    name: "Tejkiran Singh Hans",
     role: "AGM",
     company: "Bhilai Steel Plant",
     text: "The BSP Sahayak chatbot improved our internal operations significantly. Mayank's solution was both technically sound and practically effective.",

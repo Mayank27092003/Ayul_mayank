@@ -1,0 +1,65 @@
+/* 3D Carousel */
+.carousel-scene {
+    perspective: 1000px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0;
+    overflow: visible;
+}
+
+.carousel {
+    width: 300px;
+    height: 250px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCarousel 20s infinite linear;
+}
+
+.carousel:hover {
+    animation-play-state: paused;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    left: 0;
+    top: 0;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(60, 165, 250, 0.3);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(30, 64, 175, 0.2);
+    transition: all 0.5s ease;
+}
+
+.carousel-item:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 0 40px rgba(60, 165, 250, 0.4);
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.carousel-icon {
+    color: #60a5fa;
+    margin-bottom: 1rem;
+    width: 48px;
+    height: 48px;
+}
+
+@keyframes rotateCarousel {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
